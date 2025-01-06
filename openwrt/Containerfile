@@ -1,0 +1,21 @@
+FROM ubuntu:22.04
+LABEL maintainer="songguokunsgg<fansong_yan@icloud.com>"
+
+ENV HOME_PATH /root
+WORKDIR $HOME_PATH
+
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Asia/Shanghai
+
+RUN sed -i 's@archive.ubuntu.com@mirrors.tuna.tsinghua.edu.cn@g' /etc/apt/sources.list && \
+    apt update && \
+    apt upgrade -y && \
+    apt install -y build-essential clang flex bison g++ gcc gawk qemu-utils \
+    gcc-multilib g++-multilib gettext git libncurses-dev libssl-dev \
+    python3-distutils python3-setuptools rsync swig unzip zlib1g-dev file wget && \
+    git config --global user.name "songguokunsgg" && \
+    git config --global user.email "fansong_yan@icloud.com"
+
+CMD echo "=========="$HOME_PATH
+CMD echo "podman-compose up -d"
+CMD echo "-----end----"

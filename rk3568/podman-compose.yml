@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  RK3568:
+    image: rk3568
+    container_name: RK3568
+    volumes:
+      - "/root/Documents/RK3568:/root/RK3568"
+    network: host
+    command: bash
+    tty: true
+    stdin_open: true

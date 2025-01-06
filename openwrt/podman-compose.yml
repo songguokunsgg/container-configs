@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  RK3568:
+    image: openwrt
+    container_name: OpenWRT
+    volumes:
+      - "/root/Documents/openwrt:/root/openwrt"
+    network: host
+    command: bash
+    tty: true
+    stdin_open: true
