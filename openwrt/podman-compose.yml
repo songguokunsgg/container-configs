@@ -3,9 +3,10 @@ services:
   RK3568:
     image: openwrt
     container_name: OpenWRT
-    volumes:
-      - "/root/Documents/openwrt:/root/openwrt"
-    network: host
+    # 请根据需求调整
+    # volumes:
+    #   - "/user/openwrt:/home/openwrt/openwrt"
+    network: bridge
     command: bash
     tty: true
     stdin_open: true
