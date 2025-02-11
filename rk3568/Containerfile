@@ -1,9 +1,6 @@
 FROM ubuntu:22.04
 LABEL maintainer="songguokunsgg<fansong_yan@icloud.com>"
 
-ENV HOME_PATH /root
-WORKDIR $HOME_PATH
-
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
 

@@ -7,6 +7,7 @@ services:
     # volumes:
     #   - "/user/RK3568:/root/RK3568"
     network: bridge
+    user: root
     command: bash
     tty: true
     stdin_open: true

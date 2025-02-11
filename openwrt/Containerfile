@@ -1,8 +1,7 @@
+# podman build -t openwrt:latest -f Containerfile
+
 FROM ubuntu:22.04
 LABEL maintainer="songguokunsgg<fansong_yan@icloud.com>"
-
-ENV HOME_PATH /root
-WORKDIR $HOME_PATH
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
@@ -18,13 +17,15 @@ RUN sed -i 's@archive.ubuntu.com@mirrors.tuna.tsinghua.edu.cn@g' /etc/apt/source
         libreadline-dev libssl-dev libtool libyaml-dev libz-dev lld llvm lrzsz mkisofs msmtp nano \
         ninja-build p7zip p7zip-full patch pkgconf python3 python3-pip python3-ply python3-docutils \
         python3-pyelftools python3-setuptools qemu-utils re2c rsync scons squashfs-tools subversion swig texinfo uglifyjs \
-        upx-ucl unzip vim wget xmlto xxd zlib1g-dev zstd file
-    git config --global user.name "songguokunsgg" && \
-    git config --global user.email "fansong_yan@icloud.com" \
+        upx-ucl unzip vim wget xmlto xxd zlib1g-dev zstd file && \
     # 新建一个普通用户，openwrt 不能用 root 用户编译
-    useradd -m -G sudo openwrt -s /bin/bash
+    useradd -m user -s /bin/bash
 
-CMD echo "=========="$HOME_PATH
+USER user
+RUN git config --global user.name "songguokunsgg" && \
+    git config --global user.email "fansong_yan@icloud.com"
+
+CMD echo "=========="
 CMD echo "podman-compose up -d"
 CMD echo "To enter the container:"
 CMD echo "podman exec -it OpenWRT bash"
