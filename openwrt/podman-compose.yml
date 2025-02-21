@@ -4,7 +4,7 @@ services:
     image: openwrt
     container_name: OpenWRT
     # volumes:
-    #   - "/user/openwrt:/home/openwrt/openwrt"
+    #   - "/home/user/openwrt:/home/user/openwrt"
     network: bridge
     user: user
     command: bash

@@ -17,7 +17,7 @@ RUN sed -i 's@archive.ubuntu.com@mirrors.tuna.tsinghua.edu.cn@g' /etc/apt/source
         libreadline-dev libssl-dev libtool libyaml-dev libz-dev lld llvm lrzsz mkisofs msmtp nano \
         ninja-build p7zip p7zip-full patch pkgconf python3 python3-pip python3-ply python3-docutils \
         python3-pyelftools python3-setuptools qemu-utils re2c rsync scons squashfs-tools subversion swig texinfo uglifyjs \
-        upx-ucl unzip vim wget xmlto xxd zlib1g-dev zstd file && \
+        upx-ucl unzip vim wget xmlto xxd zlib1g-dev zstd file sudo && \
     # 新建一个普通用户，openwrt 不能用 root 用户编译
     useradd -m user -s /bin/bash
 
